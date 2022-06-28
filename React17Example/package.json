@@ -1,0 +1,32 @@
+{
+    "name": "react17-example",
+    "version": "0.1.0",
+    "author": "Timnity",
+    "private": true,
+    "description": "react ver.17 example, with webpack and hotload, no react-router",
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "scripts": {
+        "web": "node ./webServer.js"
+    },
+    "dependencies": {
+        "errorhandler": "^1.5.1",
+        "express": "^4.18.1"
+    },
+    "devDependencies": {
+        "@babel/preset-react": "^7.18.6",
+        "babel-loader": "^8.2.5",
+        "css-loader": "^6.7.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "sass": "^1.53.0",
+        "sass-loader": "^13.0.2",
+        "style-loader": "^3.3.1",
+        "thread-loader": "^3.0.4",
+        "webpack": "^5.73.0",
+        "webpack-bundle-analyzer": "^4.5.0",
+        "webpack-dev-middleware": "^5.3.3",
+        "webpack-hot-middleware": "^2.25.1"
+    }
+}

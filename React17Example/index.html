@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <!-- 启用 WebApp 全屏模式 -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="" />
+        <!-- 要求使用webkit内核 -->
+        <meta name="renderer" content="webkit" />
+
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="robots" content="index,follow" />
+        <meta name="author" content="Timnity" />
+        <!-- 忽略数字自动识别为电话号码 -->
+        <meta name="format-detection" content="telephone=no" />
+        <!-- 忽略识别邮箱 -->
+        <meta name="format-detection" content="email=no" />
+        <!--  App 广告条 Smart App Banner -->
+        <!-- <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL"> -->
+
+        <!-- 禁止浏览器从本地计算机的缓存中访问页面内容:这样设定,访问者将无法脱机浏览,开发使用 -->
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+        <meta http-equiv="expires" content="-1" />
+
+        <!-- 允许缓存,生产使用.使用长缓存确保服务器负担,使用文件名更新态刷缓存 -->
+        <!-- <meta http-equiv="Cache-Control" content="public"> -->
+        <!-- <meta http-equiv="Cache-Control" content="max-age=864000"> -->
+        <title></title>
+        <script type="text/javascript">
+            Number.isNaN = Number.isNaN || (function (value) {
+                return value !== value
+            })
+
+            //借助WeixinJSBridge对象来阻止字体大小调整,否则页面会变形
+            (function () {
+                if (typeof WeixinJSBridge == 'object' && typeof WeixinJSBridge.invoke == 'function') {
+                    handleFontSize()
+                } else {
+                    if (document.addEventListener) {
+                        document.addEventListener('WeixinJSBridgeReady', handleFontSize, false)
+                    } else if (document.attachEvent) {
+                        //IE浏览器，非W3C规范
+                        document.attachEvent('onWeixinJSBridgeReady', handleFontSize)
+                    }
+                }
+                function handleFontSize() {
+                    // 设置网页字体为默认大小
+                    WeixinJSBridge.invoke('setFontSizeCallback', { fontSize: 0 })
+                    // 重写设置网页字体大小的事件
+                    WeixinJSBridge.on('menu:setfont', function () {
+                        WeixinJSBridge.invoke('setFontSizeCallback', { fontSize: 0 })
+                    })
+                }
+            }
+        )()
+        </script>
+
+        <script type="text/javascript" src="https://cdn.iganxu.cn/react.prod.17.0.2.min.js"></script>
+        <script type="text/javascript" src="https://cdn.iganxu.cn/react-dom.prod.17.0.2.min.js"></script>
+    </head>
+
+    <body style="-webkit-text-size-adjust: 100% !important">
+        <div id="app-mount"></div>
+        <script type="text/javascript" src="runtime.js" async></script>
+        <script type="text/javascript" src="vendors.js" async></script>
+        <script type="text/javascript" src="css.js" async></script>
+        <script type="text/javascript" src="components.js" async></script>
+    </body>
+</html>
