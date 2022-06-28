@@ -1,0 +1,16 @@
+{
+  "name": "crypto-example",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Timnity",
+  "description": "Crypto Example",
+  "main": "",
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {},
+  "dependencies": {
+    "node-forge": "^0.10.0"
+  },
+  "devDependencies": {}
+}
